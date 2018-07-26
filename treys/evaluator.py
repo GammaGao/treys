@@ -24,19 +24,28 @@ class Evaluator(object):
             6: self._six,
             7: self._seven
         }
-
+        
     def evaluate(self, cards, board):
         """
         This is the function that the user calls to get a hand rank. 
-
         Supports empty board, etc very flexible. No input validation 
         because that's cycles!
         """
-        if len(board) >= 3: 
-            all_cards = cards + board
-        elif len(board) == 0:
-            all_cards = cards
+        all_cards = cards + board
         return self.hand_size_map[len(all_cards)](all_cards)
+        
+    # def evaluate(self, cards, board):
+    #     """
+    #     This is the function that the user calls to get a hand rank. 
+    # 
+    #     Supports empty board, etc very flexible. No input validation 
+    #     because that's cycles!
+    #     """
+    #     if len(board) >= 3: 
+    #         all_cards = cards + board
+    #     elif len(board) == 0:
+    #         all_cards = cards
+    #     return self.hand_size_map[len(all_cards)](all_cards)
 
     def _two(self, cards):
         card_num = []
